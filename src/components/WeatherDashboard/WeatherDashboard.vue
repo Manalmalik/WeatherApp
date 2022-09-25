@@ -31,6 +31,7 @@
     this.fetchWeather()
     this.city = 'london'
     this.fetchWeather()
+    this.city = ''
   },
 
   methods: {
