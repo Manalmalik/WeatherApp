@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="weather-card">
     <div>
       <h1> Weather App </h1>
       <div class="searchBox">
