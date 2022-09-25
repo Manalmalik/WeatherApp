@@ -9,6 +9,7 @@
     </div>
   <div class="container">
     <div v-for="weather in weathers"  :key="weather.name" class="location">
+      <img src="@/assets/icons/weather.png" alt="weather" class="weather-icons">
       <p> {{weather.city}} </p>
       <p> {{weather.tempInCelsius}} °C</p>
     </div>
