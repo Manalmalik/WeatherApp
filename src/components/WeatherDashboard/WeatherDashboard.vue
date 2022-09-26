@@ -8,10 +8,10 @@
       </div>
     </div>
   <div class="container">
-    <div v-for="weather in weathers"  :key="weather.name" class="location">
-      <img src="@/assets/icons/weather.png" alt="weather" class="weather-icons">
-      <p> {{weather.city}} </p>
-      <p> {{weather.tempInCelsius}} °C</p>
+    <div v-for="weather in weathers"  :key="weather.name" class="location" @click="redirectToCity(weather)">
+        <img src="@/assets/icons/weather.png" alt="weather" class="weather-icons">
+        <p> {{weather.city}} </p>
+        <p> {{weather.tempInCelsius}} °C</p>
     </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    name: 'WeatherDefault',
+    name: 'WeatherDashboard',
     data() {
     return {
      city: '',
@@ -60,6 +60,10 @@
 
     convertTempToCelsius(temprature) {
       return Math.round((temprature - 32) / 1.8)
+    },
+
+    redirectToCity(cityWeather){
+      this.$router.push({ name: 'CityWeather', params: { weather: JSON.stringify(cityWeather)}})
     }
   }
   }

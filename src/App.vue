@@ -1,17 +1,6 @@
 <template>
-  <WeatherDashboard/>
+  <router-view/>
 </template>
-
-<script>
-import WeatherDashboard from './components/WeatherDashboard/WeatherDashboard.vue';
-
-export default {
-  name: 'App',
-  components: {
-    WeatherDashboard
-}
-}
-</script>
 
 <style>
 #app {
