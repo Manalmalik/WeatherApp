@@ -22,7 +22,7 @@ html, body {
     background: linear-gradient(355deg, rgba(2,0,36,1) 0%, rgba(71,131,159,1) 91%, rgba(0,212,255,1) 100%);
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+::-webkit-input-placeholder { 
     color: white;
 }
 
@@ -66,4 +66,48 @@ html, body {
     height: 3rem;
     width: 3rem;
     margin: auto 0px;
+}
+
+/* Second Component */
+
+.info-container {
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+.weather-temp-card{
+    width:18rem;
+    padding: 65px 0px;
+}
+
+.weather-conditions {
+    display: inline-flex;
+    gap: 20px;
+}
+
+.inline-display {
+    display: inline;
+}
+
+.weather-info-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 18rem;
+    padding: 30px 30px;
+}
+
+.cell-one {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+}
+
+.cell-two {
+    border-bottom: 1px solid;
+}
+
+.cell-three {
+    border-right: 1px solid;
 }
