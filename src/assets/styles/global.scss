@@ -26,6 +26,10 @@ html {
     color: white;
 }
 
+.city-name-warning {
+    display: none;
+}
+
 .weather-card {
     border-radius: 20px;
     height: 100%;
@@ -55,10 +59,14 @@ html {
     justify-content: space-between;
 }
 
-.searchBox {
+.search-box-container {
+    margin-bottom: 40px;
+}
+
+.search-box {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     border-radius: 30px;
-    margin: 40px auto;
+    margin: 10px auto;
     width: 60%;
 }
 

@@ -1,11 +1,12 @@
 <template>
   <div class="weather-card">
-    <div>
+    <div class="search-box-container">
       <h1> Weather App </h1>
-      <div class="searchBox">
+      <div @click="hideErrorMessage" class="search-box">
       <input type="text" v-model="city" placeholder="Enter City Name"/>
       <button @click="fetchWeather"> <i class="fa fa-search" title="Edit"></i> </button>
-      </div>
+    </div>
+    <p class="city-name-warning" id="error-message"> invalid city name </p>
     </div>
   <div class="container">
     <div v-for="weather in weathers"  :key="weather.name" class="location" @click="redirectToCity(weather)">
@@ -45,21 +46,25 @@
     },
 
     setWeather(response) {
-      console.log("l", response)
-      var cityWeather = {
-        city: response.name,
-        description: response.weather[0].description,
-        tempInCelsius: Math.round(response.main.temp),
-        sunset: this.convertTime(response.sys.sunset),
-        sunrise: this.convertTime(response.sys.sunrise),
-        visibility: this.convertToKm(response.visibility),
-        humidity: response.main.humidity,
-        high: Math.round(response.main.temp_max),
-        low: Math.round(response.main.temp_min),
-        feelsLike: Math.round(response.main.feels_like),
-        wind: response.wind.speed
-      }
-      this.weathers.push(cityWeather)
+     if(response.message){
+       var errorDiv = document.getElementById("error-message")
+       errorDiv.classList.remove("city-name-warning")
+     }else{
+       var cityWeather = {
+         city: response.name,
+         description: response.weather[0].description,
+         tempInCelsius: Math.round(response.main.temp),
+         sunset: this.convertTime(response.sys.sunset),
+         sunrise: this.convertTime(response.sys.sunrise),
+         visibility: this.convertToKm(response.visibility),
+         humidity: response.main.humidity,
+         high: Math.round(response.main.temp_max),
+         low: Math.round(response.main.temp_min),
+         feelsLike: Math.round(response.main.feels_like),
+         wind: response.wind.speed
+       }
+       this.weathers.push(cityWeather)
+     }
     },
 
     redirectToCity(cityWeather){
@@ -76,6 +81,13 @@
       var minutes = date.getMinutes()
       return `${hours}:${minutes}`
     },
+
+    hideErrorMessage(){
+      var errorDiv = document.getElementById("error-message")
+      if(!errorDiv.classList.contains("city-name-warning")){
+        errorDiv.classList.add("city-name-warning")
+      }
+    }
   }
   }
 </script>
