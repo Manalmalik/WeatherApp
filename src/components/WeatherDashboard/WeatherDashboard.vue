@@ -38,33 +38,44 @@
     fetchWeather() {
         const apiKey = '106acde16f1cf39992a3151adac14e0d';
         const apiBaseUrl = 'https://api.openweathermap.org/data/2.5/';
-        fetch(`${apiBaseUrl}weather?q=${this.city}&units=imperial&APPID=${apiKey}`)
+        fetch(`${apiBaseUrl}weather?q=${this.city}&units=metric&APPID=${apiKey}`)
         .then(res => {
           return res.json()
         }).then(this.setWeather)
     },
 
     setWeather(response) {
+      console.log("l", response)
       var cityWeather = {
         city: response.name,
         description: response.weather[0].description,
-        tempInCelsius:this.convertTempToCelsius(response.main.temp),
-        tempInFarenheit: response.main.temp,
-        sunset: response.sys.sunset,
-        sunrise: response.sys.sunrise,
-        visibility: response.visibility,
+        tempInCelsius: Math.round(response.main.temp),
+        sunset: this.convertTime(response.sys.sunset),
+        sunrise: this.convertTime(response.sys.sunrise),
+        visibility: this.convertToKm(response.visibility),
         humidity: response.main.humidity,
+        high: Math.round(response.main.temp_max),
+        low: Math.round(response.main.temp_min),
+        feelsLike: Math.round(response.main.feels_like),
+        wind: response.wind.speed
       }
       this.weathers.push(cityWeather)
     },
 
-    convertTempToCelsius(temprature) {
-      return Math.round((temprature - 32) / 1.8)
-    },
-
     redirectToCity(cityWeather){
       this.$router.push({ name: 'CityWeather', params: { weather: JSON.stringify(cityWeather)}})
-    }
+    },
+
+    convertToKm(visibility){
+      return visibility / 1000
+    },
+
+    convertTime(timeStamp){
+      var date = new Date(timeStamp * 1000)
+      var hours = date.getHours()
+      var minutes = date.getMinutes()
+      return `${hours}:${minutes}`
+    },
   }
   }
 </script>

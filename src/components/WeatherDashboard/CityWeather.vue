@@ -3,27 +3,34 @@
         <h1> {{weatherInfo.city}} </h1>
         <div class="info-container">
             <div class="weather-card weather-temp-card">
-                <p> Sunny </p>
-                <p> 12 C </p>
-                <p class="inline-display"> hum </p>
-                <p class="inline-display"> visi </p>
+                <img src="@/assets/icons/weather.png" alt="weather" class="city-weather-icons">
+                <p> {{weatherInfo.description}} </p>
+                <p class="temperature-text"> {{weatherInfo.tempInCelsius}}°C </p>
+                <p class="inline-display"> H: {{weatherInfo.high}}°C</p>
+                <p class="inline-display"> L: {{weatherInfo.low}}°C </p>
             </div>
-            <div class="weather-card weather-info-card">
-                <div class="cell-one"> 
-                    <p> sunrise </p>
-                    <p> 05:30 </p>
+            <div class="weather-info">
+                <div class="weather-card weather-info-card">
+                    <div class="cell-one"> 
+                        <p> sunrise </p>
+                        <p> {{weatherInfo.sunrise}} </p>
+                    </div>
+                    <div class="cell-two">
+                        <p> sunset </p>
+                        <p> {{weatherInfo.sunset}} </p>
+                    </div>
+                    <div class="cell-three">
+                        <p> Humidity </p>
+                        <p> {{weatherInfo.humidity}}% </p>
+                    </div>
+                    <div>
+                        <p> Visibility </p>
+                        <p> {{weatherInfo.visibility}}km </p>
+                    </div>
                 </div>
-                <div class="cell-two">
-                    <p> sunrise </p>
-                    <p> 05:30 </p>
-                </div>
-                <div class="cell-three">
-                    <p> sunrise </p>
-                    <p> 05:30 </p>
-                </div>
-                <div>
-                    <p> sunrise </p>
-                    <p> 05:30 </p>
+                <div class="weather-card weather-feels-like">
+                    <p> Feels like {{weatherInfo.feelsLike}}°C</p>
+                    <p> Wind {{weatherInfo.wind}}m/s</p>
                 </div>
             </div>
         </div>
