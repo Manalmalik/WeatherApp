@@ -1,6 +1,11 @@
 <template>
     <div class="city-container">
-        <h1> {{weatherInfo.city}} </h1>
+        <div>
+            <span class="back-button" @click="redirectToDashboard">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </span>
+            <h1> {{weatherInfo.city}} </h1>
+        </div>
         <div class="info-container">
             <div class="weather-card weather-temp-card">
                 <img src="@/assets/icons/weather.png" alt="weather" class="city-weather-icons">
@@ -47,8 +52,8 @@
         }
     },
     methods: {
-        showWeather(){
-            console.log('g', JSON.parse(this.weather))
+        redirectToDashboard(){
+            this.$router.push({name: "WeatherDashboard"})
         }
     }
   }

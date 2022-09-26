@@ -134,6 +134,12 @@ html {
     width: auto;
 }
 
+.back-button {
+    align-self: center;
+    position: absolute;
+    left: 4rem;
+}
+
 @media (min-width: 700px) {
     input{
         width: 84%;

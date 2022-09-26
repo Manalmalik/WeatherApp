@@ -8,7 +8,7 @@ const routes =  [
         component: WeatherDashboard
     },
     {
-        path: '/city',
+        path: '/weather/:cityName',
         name: 'CityWeather',
         component: () => import(/* webpackChunkName: "about" */ '@/components/WeatherDashboard/CityWeather.vue'),
         props: true

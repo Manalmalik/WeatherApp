@@ -63,7 +63,7 @@
     },
 
     redirectToCity(cityWeather){
-      this.$router.push({ name: 'CityWeather', params: { weather: JSON.stringify(cityWeather)}})
+      this.$router.push({ name: 'CityWeather', params: {cityName: cityWeather.city, weather: JSON.stringify(cityWeather)} })
     },
 
     convertToKm(visibility){
