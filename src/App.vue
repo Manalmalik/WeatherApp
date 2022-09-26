@@ -11,4 +11,10 @@
   color: white;
   margin-top: 60px;
 }
+
+@media (min-width: 700px) {
+  #app{
+    padding: 30px;
+  }
+}
 </style>

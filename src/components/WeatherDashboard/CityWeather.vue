@@ -17,11 +17,11 @@
             <div class="weather-info">
                 <div class="weather-card weather-info-card">
                     <div class="cell-one"> 
-                        <p> sunrise </p>
+                        <p> Sunrise </p>
                         <p> {{weatherInfo.sunrise}} </p>
                     </div>
                     <div class="cell-two">
-                        <p> sunset </p>
+                        <p> Sunset </p>
                         <p> {{weatherInfo.sunset}} </p>
                     </div>
                     <div class="cell-three">
